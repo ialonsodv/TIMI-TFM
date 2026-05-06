@@ -40,6 +40,9 @@ Si deseas ejecutar TIMI en tu entorno local:
    Bash
    streamlit run app.py
 
+##
 **Autor**: Ignacio Alonso De Vaya
+
 **Máster**: MAGABI26 - Instituto de Estudios Cajasol
+
 **Fecha**: Mayo 2026
