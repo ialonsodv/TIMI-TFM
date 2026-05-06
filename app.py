@@ -66,15 +66,21 @@ def load_assets():
 rf, scaler, df_ref = load_assets()
 
 # 3. INTERFAZ PRINCIPAL
-col_head1, col_head2 = st.columns([3, 1])
+col_head1, col_head2 = st.columns([4, 1])
+
 with col_head1:
     st.title("TIMI")
+    st.markdown("<h3 style='margin-top:-20px; color: #1a3a5a; font-size: 20px;'>Tool for Intelligent Market Inference</h3>", unsafe_allow_html=True)
+    st.caption("Sistema Avanzado de Inferencia Demográfica e Inteligencia Inmobiliaria")
+
 with col_head2:
     ruta_logo = os.path.join(ruta_base, 'logo_timi.png')
     if os.path.exists(ruta_logo):
         st.image(ruta_logo, use_container_width=True)
     else:
         st.write("")
+
+st.markdown("---")
 
 if df_ref is not None:
     lista_prov = sorted(df_ref['PROV'].unique().tolist(), key=normalizar)
