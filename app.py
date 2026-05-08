@@ -108,7 +108,7 @@ if df_ref is not None:
 
     st.markdown("---")
     st.subheader("⚙️ Simulación de Escenarios")
-    st.caption("Ajusta la variación porcentual sobre los datos reales actuales.")
+    st.caption("Ajuste la variación porcentual sobre los datos reales actuales.")
 
     def crear_input_simulacion(label, val_base, key_suffix, unidad="%"):
         col1, col2 = st.columns([2, 1])
