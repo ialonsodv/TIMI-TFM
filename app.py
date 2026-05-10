@@ -112,7 +112,7 @@ if df_ref is not None:
 
     def crear_input_simulacion(label, val_base, key_suffix, unidad="%"):
         st.markdown(f"**{label}**")
-    
+        
         delta = st.slider(
             label, 
             -50, 50, 0, 
@@ -120,13 +120,13 @@ if df_ref is not None:
             key=f"s_{prov_sel}_{key_suffix}",
             label_visibility="collapsed"
         )
-    
+        
         val_final = float(val_base * (1 + delta/100))
-    
+        
         st.markdown(f"""
-            <div style="margin-top: -15px; margin-bottom: 25px;">
+            <div style="margin-top: -15px; margin-bottom: 35px; border-bottom: 1px solid #f0f2f6; padding-bottom: 10px;">
                 <span style="font-size: 14px; color: #666;">Base: {val_base:.2f}{unidad}</span>
-                <span style="font-size: 14px; color: #1a3a5a; font-weight: bold; margin-left: 15px;">
+                <span style="font-size: 14px; color: #1a3a5a; font-weight: bold; margin-left: 20px;">
                     → Simulado: {val_final:.2f}{unidad}
                 </span>
             </div>
