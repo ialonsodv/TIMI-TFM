@@ -111,13 +111,27 @@ if df_ref is not None:
     st.caption("Ajuste la variación porcentual sobre los datos reales actuales.")
 
     def crear_input_simulacion(label, val_base, key_suffix, unidad="%"):
-        col1, col2 = st.columns([2, 1])
-        with col1:
-            delta = st.slider(f"{label}", -50, 50, 0, format="%d%%", key=f"s_{prov_sel}_{key_suffix}")
+        st.markdown(f"**{label}**")
+    
+        delta = st.slider(
+            label, 
+            -50, 50, 0, 
+            format="%d%%", 
+            key=f"s_{prov_sel}_{key_suffix}",
+            label_visibility="collapsed"
+        )
+    
         val_final = float(val_base * (1 + delta/100))
-        with col2:
-            st.markdown(f"**{val_final:.2f}{unidad}**")
-            st.caption(f"Base: {val_base:.2f}{unidad}")
+    
+        st.markdown(f"""
+            <div style="margin-top: -15px; margin-bottom: 25px;">
+                <span style="font-size: 14px; color: #666;">Base: {val_base:.2f}{unidad}</span>
+                <span style="font-size: 14px; color: #1a3a5a; font-weight: bold; margin-left: 15px;">
+                    → Simulado: {val_final:.2f}{unidad}
+                </span>
+            </div>
+        """, unsafe_allow_html=True)
+        
         return val_final
 
     v1 = crear_input_simulacion("Crecimiento General de la Población", r['VAR_ANUAL_POB'], "pob")
